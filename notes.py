@@ -27,27 +27,27 @@ while latestDB < bitmexLatest:
     time.sleep(1)
 
 # Telegram Bot (Home, Old)
-def SendTelegramMessage(message):
+def _send_tg_msg(message):
     base_url = 'https://api.telegram.org/bot5419868757:AAFlcWPtfBgvAH5luFoePwObPhRIOBvsxWM/sendMessage?chat_id=-696533053&text='
     requests.get(base_url + message)
 
 # Telegram Bot (VPS, TP)
-def SendTGMessagetoVPSChannel(message):
+def _send_tg_msg_to_vps_channel(message):
     base_url = 'https://api.telegram.org/bot5303768975:AAGkut6ojqmO8_b7RSkeqbqmaKMXGop36_8/sendMessage?chat_id=-654455487&text='
     requests.get(base_url + message)
 
 # Telegram Bot (Home, Data)
-def SendTGMessagetoDataChannel(message):
+def _send_tg_msg_to_data_channel(message):
     base_url = 'https://api.telegram.org/bot6361635435:AAE5OdF3wdaRcz5imeDO7OCqnqS0ZNLoGCE/sendMessage?chat_id=-812574620&text='
     requests.get(base_url + message)
 
 # Telegram Bot (Home, Backtest)
-def SendTGMessagetoBacktestChannel(message):
+def _send_tg_msg_to_backtest_channel(message):
     base_url = 'https://api.telegram.org/bot6233469935:AAHayu1tVZ4NleqRFM-61F6VQObWMCwF90U/sendMessage?chat_id=-809813823&text='
     requests.get(base_url + message)
 
 # Telegram Bot (HTrading)
-def SendTGMessagetoTradingChannel(message):
+def _send_tg_msg_to_trading_channel(message):
     base_url = 'https://api.telegram.org/bot6118524526:AAFxO28kTOeymD7aJ_v-0sWOmpPp-UY2Mng/sendMessage?chat_id=-853145017&text='
     requests.get(base_url + message)
 
