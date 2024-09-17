@@ -1,5 +1,8 @@
+import aiohttp
+import asyncio
 import calendar
 import datetime
+from datetime import datetime, timedelta
 import pandas as pd
 import numpy as np
 import os
@@ -7,12 +10,139 @@ import pandas as pd
 from pprint import pprint
 import requests
 import time
-
+import json
 import functools
-
 from multiprocessing import Process
 from threading import Thread
 from queue import Queue
+
+pause_flag = False
+
+async def fetch_data(session, path, resolution, symbol, exchange=None, miner=None):
+    global pause_flag
+    # pause_flag = False
+
+    while True:
+        try:
+            params = {"api_key": "2VzGLKG4ajn6srWCeRFgXxH386F", "s": "1724112000", "i": resolution, "a": symbol}
+            url    = "https://api.glassnode.com" + path
+
+            async with session.get(url, params = params) as response:
+                """
+                while pause_flag == True:
+                    await asyncio.sleep(1)
+                    print(symbol, "awaited")
+    
+                print(symbol, "awaited finishhed")
+                """
+
+                if symbol == "BTC":
+                    response_status = 429
+
+                else:
+                    response_text = await response.text()
+
+                    limit      = int(response.headers["X-Rate-Limit-Remaining"])
+                    sleep_time = int(response.headers["X-Rate-Limit-Reset"])
+
+                    # pprint(limit)
+                    # pprint(sleep_time)
+
+                    response_status = response.status
+
+                    response_json = json.loads(response_text)
+                    pprint(response_json)
+
+                if response_status == 429:
+                    message = "occurred 429 Too Many Requests"
+                    print(message)
+
+                    pause_flag = True
+
+                    await asyncio.sleep(5)  # Pause for 10 seconds
+
+                    print("ended pause_flag")
+                    pause_flag = False
+
+                    continue
+
+                    # raise Exception(f"{path}丨{resolution}丨{symbol}丨{exchange}丨{miner}丨{message}")
+
+                print("test")
+
+                return response_status
+
+            # else:
+                # print("global_pause_flag")
+                # pass
+
+        except Exception as e:
+            # print(symbol, e)
+            """
+            if "429" in str(e) and (pause_flag == False):
+                pause_flag = True
+    
+                await asyncio.sleep(5)  # Pause for 10 seconds
+    
+                print("ended pause_flag")
+                pause_flag = False
+                """
+
+        # else:
+        # print(e)
+
+async def main():
+    task_list = []
+
+    async with aiohttp.ClientSession() as session:
+        for _ in range(1):
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "BTC"))
+            """
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "ETH"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "1INCH"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "SHIB"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "CAKE"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "INJ"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "LDO"))
+            task_list.append(fetch_data(session, "/v1/metrics/addresses/count", "24h", "LINA"))
+            """
+
+        results = await asyncio.gather(*task_list)
+        print(results)
+
+asyncio.run(main())
+exit()
+
+# Modify the copy using .loc
+df_copy.loc[df_copy['column_name'] > 0, 'column_to_modify'] = new_value
+
+# Or modify the original DataFrame using .loc
+df.loc[df['column_name'] > 0, 'column_to_modify'] = new_value
+exit()
+
+# Example DataFrame
+df = pd.DataFrame({
+    'A': [1, 2, 3],
+    'B': [4, 5, 6],
+    'C': [7, 8, 9]
+})
+
+print(df)
+# Row to compare against
+row_to_compare = pd.Series([2, 5, 8], index=['A', 'B', 'C'])
+
+# Find the relevant row
+relevant_row = None
+for _, row in df.iterrows():
+    if row.equals(row_to_compare):
+        relevant_row = row
+        break
+
+if relevant_row is not None:
+    print("Relevant Row:")
+    print(relevant_row)
+else:
+    print("No relevant row found.")
 
 """
 def worker(q, lock):
