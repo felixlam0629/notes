@@ -3,37 +3,63 @@ import pandas as pd
 from pprint import pprint
 import requests
 import time
+import threading
 
-pd.set_option("display.max_columns", None)
-pd.set_option("display.max_rows", None)
-pd.set_option("display.width", 320)
+signal_list = [0, 0, 0, -1, -2, 3]
 
-
-data = {'A': [10, 100, 1000, 10000, 100000],
-        'B': [10, 20, 30, 40, 50]}
-df = pd.DataFrame(data)
-
-# Taking the natural logarithm of column 'A'
-df['log_A'] = np.log(df['A'])
-
-print(df)
+# Get the second last element using negative indexing
+second_last_element = signal_list[-2]
+print(second_last_element)
 exit()
-finished_path = "D:\\backtest\\cryptocurrency\\glassnode\\felix_v3_reversion\\+v1+metrics+addresses+count\\24h"
-symbol = "FET"
-set = "backtest_set"
 
-symbol_csv = f"{finished_path}/{symbol}/{set}/full_result/{symbol}.csv"
-symbol_df  = pd.read_csv(symbol_csv)
+number = 0.324072
+rounded_number = round(number, 2)  # Round to 4 significant figures
 
-print(symbol_df)
+print(rounded_number)
+exit()
 
-for i in range(len(symbol_df)):
-    highest_sharpe = symbol_df["strat_sharpe"].iloc[i]
-    num_of_trade   = symbol_df["num_of_trade"].iloc[i]
+locker_activated = False
 
-    if num_of_trade > 0:
-        print(highest_sharpe)
+def activate_locker():
+    global locker_activated
+
+    while True:
+        print("a")
         break
 
-print(highest_sharpe)
-print(num_of_trade)
+    print("b")
+
+    if locker_activated == False:
+        print("Locker deactivated")
+
+        locker_activated = True
+
+        print("Locker activated")
+
+        timer = threading.Timer(5, deactivate_locker)
+        timer.start()
+        print("a")
+
+        """
+        start_time = time.time()
+        now_time   = time.time()
+
+        while (now_time - start_time < 10) == True:
+            now_time = time.time()
+            print("Locker waiting to deactivate")
+
+        deactivate_locker()
+        """
+
+def deactivate_locker():
+    global locker_activated
+
+    if locker_activated == True:
+        print("Locker ready to deactivate")
+
+        locker_activated = False
+
+        print("Locker deactivated")
+
+# Test the locker functionality
+activate_locker()
