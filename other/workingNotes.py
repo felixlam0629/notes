@@ -2,35 +2,32 @@
 
 """
 main
-- transfer bybit fund to binance 3th sub-acc for phoebe (waiting team onboard 4th acc)
-3) check the difference in calculating trading fee
-- based on trading volume?
-- based on trading frequency?
-
-4) ask calvin about multi-factor issue
+1) transfer bybit fund to binance 4th sub-acc for phoebe (waiting team onboard 4th acc)
 --------------------------------------------------
-1) optimize current strategy (celesty, claire) -> start big backtest again
-- claire - model (z_score, sd_only)
-- claire - basis / open
+1) optimize current strategy (celesty, claire)
+- celesty + claire (resampled to 8hrs) -> if (index + funding) > futures -> long/ short
 
-(sat morning)
-- celesty - model (z_score, sd_only, with 0.01 as mean)
+2) big backtest on the following strategy
+- phoebe - all endpoints -> updating all data
 
-phoebe - model (z_score, sd_only)
-phoebe - funding_rate (for all symbols with exchanges)
-phoebe - address -> active, count
+check strategy crystal
 
-try various model on good result symbols
-if good -> try big backtest again
-if bad  -> end
 --------------------------------------------------
-backtest
-Target before 31/12 (this quarter)
--> develop new strategies (from glassnode only)
-
-works for tmr
+2) develop new strategies (from glassnode only)
 - futures - open_interest (cash-margin, crypto-margin, perp, ...), volume (...)
 --------------------------------------------------
+(analysis)
+- bvol analysis
+- check monthly pnl
+--------------------------------------------------
+(optimization)
+- within-resolution close position
+- timezone
+
+
+
+
+
 team
 1) change to notional value instead of base_qty -> will do so in the next version
 2) adjust notional to aware of MDD of each strategy (some > 100%...)
@@ -52,9 +49,6 @@ other (backtest)
 1) SingleResult function -> update data with trading symbol_list too
 - including 1) kline, 2) index_kline, 3) funding_rate
 
-2) 3. 1-min delay in opening position
-- 1-min kline for trading symbols only
-
 3) backtest_df data visualization
 - visualize data with time -> check data quality
 
@@ -75,6 +69,7 @@ other (analysis)
 optimization (backtest)
 1. magnitude calculation method
 - 1) iv * open_interest
+- make the open_interest -> change % to normalize it
 - 2) iv * volume (sd_normalized)
 rationale: if both call iv increases and volume sudden increaded -> most of them are retail investors
 rationale: if call iv increases, volume did not changed          -> market maker increases iv -> some of them might be institutional investors
