@@ -8,24 +8,21 @@ main
 - celesty + claire (resampled to 8hrs) -> if (index + funding) > futures -> long/ short
 
 2) big backtest on the following strategy
-- phoebe - all endpoints -> updating all data
-
-check strategy crystal
-
+- phoebe -> updating all data
 --------------------------------------------------
-2) develop new strategies (from glassnode only)
-- futures - open_interest (cash-margin, crypto-margin, perp, ...), volume (...)
---------------------------------------------------
-(analysis)
-- bvol analysis
-- check monthly pnl
---------------------------------------------------
-(optimization)
-- within-resolution close position
-- timezone
+1) claire - try 12h-resolution close position
 
+2) deribit data scripts
+problem: data is not trustable to use atm LMAO
 
+3) backtest_df data visualization
+- visualize data with time -> check data quality
 
+4) backtest analysis
+- pnl (long, short) distribution -> check if one-off -> affecting the whole result
+- monthly pnl distribution -> check if one-off
+
+5) monthly/ daily pnl analysis
 
 
 team
@@ -41,22 +38,14 @@ other (data)
 - 4.1) coinm_futures with contractType
 - 4.2) funding_rate upper/ lower limit from exchange API
 - 4.3) N.A for data
-
-5) deribit data scripts
-problem: data is not trustable to use atm LMAO
 --------------------------------------------------
 other (backtest)
-1) SingleResult function -> update data with trading symbol_list too
-- including 1) kline, 2) index_kline, 3) funding_rate
-
 3) backtest_df data visualization
 - visualize data with time -> check data quality
 
 4) backtest analysis
 - pnl (long, short) distribution -> check if one-off -> affecting the whole result
 - monthly pnl distribution -> check if one-off
-
-5) claire -> across exchange??
 --------------------------------------------------
 other (analysis)
 1) post-trade analysis (from exchange UI)
@@ -79,14 +68,7 @@ rationale: if call iv increases, volume did not changed          -> market maker
 - as funding_rate is testified to be a profitable strategy
 - therefore, focos on magnitude calculation method with
 
-phrase 1
-- BTC, ETH, BNB, DOGE, AVAX, GRT, LDO, LINA only
-- 8h (resampled from 1h)
-- all exchanges except ftx
-
-phrase 2
-- BTC, ETH, BNB, DOGE, AVAX, GRT, LDO, LINA only
-- 8h (resampled from 1h)
+- BTC, ETH, DOGE, AVAX, GRT only
 - funding_rate * open_interest/ volume? maximize the retail effect on funding_rate/ position
 - funding_rate * estimated leverage ratio?
 
@@ -99,4 +81,13 @@ phrase 2
 thought
 1) lower volatility -> less retail investor participation
 2) higher volatility -> more retail investors -> alpha for CTA
+
+5. bvol analysis (waiting answer from calvin)
+--------------------------------------------------
+other (trading)
+1) SingleResult function
+- getdata from exchange
+- calculate trading signal
+- show in a df for real- trade decision
+--------------------------------------------------
 """
