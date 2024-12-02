@@ -1,4 +1,8 @@
 '''
+git fetch
+git pull
+- before creating a new branch
+
 df["Date"].plot() -> showing whether its a straight line or not
 
 pd.set_option("display.max_columns", None)
