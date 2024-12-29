@@ -44,6 +44,13 @@ thought
 2) higher volatility -> more retail investors -> alpha for CTA
 
 4. bvol analysis (waiting answer from calvin)
+
+5. single para_dict vs full_para_dict vs all_para_combination in backtestEngine
+--------------------------------------------------
+to-do list (correlation)
+1) optimize correlationChecker
+- by symbol
+- by single symbol in single strategy
 --------------------------------------------------
 to-do list (analysis)
 1) finalize pnlAnalyzer
