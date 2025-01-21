@@ -3,18 +3,21 @@
 """
 main
 update phoebe script
+add christyResult
+
+# optimize strategy model/ type params
 
 2.1 price_data (sd, different resolution, momentum only)
 - binance
 scrapping: /
-waiting: 5m, 15m, 30m, 2h, 4h
-backtesting: 1h
+waiting: 5m, 15m, 30m, 1h, 2h, 4h
+backtesting:
 finished: 24h, 12h, 8h, 6h
 
 - bybit
 scrapping: 5m
-waiting: 30m, 15m
-backtesting: 1h
+waiting: 1h, 30m, 15m
+backtesting:
 finished: 2h, 4h, 6h, 12h, 24h
 
 top
