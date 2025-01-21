@@ -2,7 +2,20 @@
 
 """
 main
-# test claire different resolution
+update phoebe script
+
+2.1 price_data (sd, different resolution, momentum only)
+- binance
+scrapping: /
+waiting: 5m, 15m, 30m, 2h, 4h
+backtesting: 1h
+finished: 24h, 12h, 8h, 6h
+
+- bybit
+scrapping: 5m
+waiting: 30m, 15m
+backtesting: 1h
+finished: 2h, 4h, 6h, 12h, 24h
 
 top
 1) Backtest glassnode
@@ -18,7 +31,6 @@ now_data
 
 
 2) Backtest trading_idea
-2.1 price_data (sd, different resolution, momentum)
 2.3 taker buy/sell volume (sd, different resolution, momentum, reversion)
 --------------------------------------------------
 """
