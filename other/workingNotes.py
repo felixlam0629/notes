@@ -1,38 +1,18 @@
 # working Notes
 
 """
-trade phoebe other factors
+- Resampling
 
 main
 1) backtest phoebe good endpoint_list
-- backtest
 2) trade phoebe good endpoint_list
+3) optimize phoebe good endpoint_list (resampling, modelling)
 
-3) adopt different model to backtestEngine
-* rmb Signal.py changed in non-24h backtesting
-
-Optimization for 25Q1
-- Resampling
-- Modelling
-
-waiting
 - glassnode resampling
 (method: past mean, past total, now_data) -> 12h, 8h, 6h, 4h, 2h, 1h
-- optimize phoebe current endpoint (resampling only)
 - backtest taker buy/sell volume (sd, different resolution, momentum, reversion)
 --------------------------------------------------
 other
-
-Backtest
-
-(MP issue)
- 1 BacktestProcessor -> put into BacktestEngine
- 2 BacktestProcessor -> stay remaining function the same
-
-(Folder issue)
- 1 Issue: various model in a folder, a good and a bad -> deleted the whole folder LMAO
-
- 1 Solution: always put symbol at the last (BTC…)
 
 Questions
 Data
@@ -41,19 +21,6 @@ Data
 Backtest
  1 Modelling -> params how to set?
  2 Open/ exit logic -> other than 1) > ut// <lt, 2) flat-at-0, anymore?
-
-Notes
-1 Handle skewness data
-root, log, yeo-johnson, rank, box-cox
-
- 1 Validation method
-walk-forward, split, k-fold
-
- 1 Params
-Window: 151, threshold 1
-Window: 129, threshold 0.8
-
-With 0.5 equal weigting
 
 Trading_idea
 (From 22Q3 Stefan)
