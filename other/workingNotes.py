@@ -2,6 +2,10 @@
 
 """
 - Resampling
+data_checker, other function...
+glassnode data_dict, one signle endpoint first
+interval vs res0lution issue in backtestEgine
+
 (method: past mean, past total, now_data) -> 12h, 8h, 6h, 4h, 2h, 1h
 
 main
