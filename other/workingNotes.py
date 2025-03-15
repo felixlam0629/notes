@@ -8,7 +8,6 @@ waiting
 backtest (mon - wed)
 - backtest_dict for validation stage
 - visualier (all method, model, close, only initial)
-- shifting -> validation
 - final_result -> (1 method, 1model, 1close for 1 csv) with top 30 results
 Note: to pick another params if the heatmap xyz
 
