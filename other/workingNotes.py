@@ -4,33 +4,20 @@
 waiting
 - run all exchangeData for testing new dataScrapper
 
-(Fri, Mon, Tue, Wed)
-backtest (mon - wed)
-- backtest_dict for validation stage
-- visualier (all method, model, close, only initial)
-- final_result -> (1 method, 1model, 1close for 1 csv) with top 30 results
-Note: to pick another params if the heatmap xyz
-
-(Thurs, Fri)
 prod
-- change to by sharpe ratio1
-- fix different open size issue
 - strategy weighting -> ask how to do strategy weigting
 - db (csv) logging (order, trade, etc...)
-
-timeline
-(Fri, Sat, Sun)
-- initial backtest for all useful endpoints
-
-main
-re-backtest binance, bybit funding_rate, basis
+- add how to deal with close (faz)
 
 1) backtest phoebe good endpoint_list
-2) add shifting in validation method
 2) trade phoebe good endpoint_list
 3) optimize phoebe good endpoint_list (resampling, modelling)
-4) (method: past mean, past total, now_data) -> 12h, 8h, 6h, 4h, 2h, 1h
-5) add shifting in validation method
+4) backtest binance, bybit funding_rate, basis
+5) create straetgy pool
+6) check correlation among strategy (in fixed resolution)
+
+when tried...
+1) refactor everything...
 --------------------------------------------------
 Trading_idea
 (From 22Q3 Stefan)
