@@ -1,13 +1,14 @@
 # working Notes
 
 """
+working today
+- add how to deal with method, model, close
+
 waiting
 - run all exchangeData for testing new dataScrapper
 
 prod
 - strategy weighting -> ask how to do strategy weigting
-- db (csv) logging (order, trade, etc...)
-- add how to deal with close (faz)
 
 1) backtest phoebe good endpoint_list
 2) trade phoebe good endpoint_list
