@@ -1,7 +1,7 @@
 # working Notes
 
 """
-working today
+to-do today
 - add how to deal with method, model, close
 
 waiting
@@ -10,15 +10,16 @@ waiting
 prod
 - strategy weighting -> ask how to do strategy weigting
 
-1) backtest phoebe good endpoint_list
-2) trade phoebe good endpoint_list
-3) optimize phoebe good endpoint_list (resampling, modelling)
+1) backtest glassnode good endpoint_list
+2) trade glassnode good endpoint_list
+3) resample glassnode good endpoint_list
 4) backtest binance, bybit funding_rate, basis
 5) create straetgy pool
 6) check correlation among strategy (in fixed resolution)
 
 when tried...
 1) refactor everything...
+2) ask questions for the whole system (backtest/ prod)
 --------------------------------------------------
 Trading_idea
 (From 22Q3 Stefan)

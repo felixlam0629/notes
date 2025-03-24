@@ -1,20 +1,20 @@
 # waiting Notes
 
 """
+to-do list (prod)
+1) Feedback Loop
+- track predictions vs outcomes (after strat pool introdcted)
+
+2) Execution Quality Analysis
+- add slippage tracking and execution quality metrics
+
 to-do list (data)
 1) get_data for dataScrapper
 2) data standardization
-3) path standardization
 4) checker optimization
 - 4.1) coinm_futures with contractType
 - 4.2) funding_rate upper/ lower limit from exchange API
 - 4.3) N.A for data
-
-5) storing optimization
-- if data smaller than 3-year history -> do not download and skip
-
-6) glassnode optimization
-= del data for useless symbol and exchange_list as well
 --------------------------------------------------
 to-do list (backtest)
 1. magnitude calculation method
@@ -24,7 +24,5 @@ to-do list (backtest)
 rationale: if both call iv increases and volume sudden increaded -> most of them are retail investors
 rationale: if call iv increases, volume did not changed          -> market maker increases iv -> some of them might be institutional investors
 - 3) iv * put_call ratio
-
-2. single para_dict vs full_para_dict vs all_para_combination in backtestEngine
 --------------------------------------------------
 """
