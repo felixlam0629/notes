@@ -1,9 +1,9 @@
 # working Notes
 
 """
-to-do today
-- add how to deal with method, model, close
+// "strategy_list": ["Celesty", "Christy", "Christy_v2", "Glassnode"],
 
+to-do today
 waiting
 - run all exchangeData for testing new dataScrapper
 
@@ -20,6 +20,10 @@ prod
 when tried...
 1) refactor everything...
 2) ask questions for the whole system (backtest/ prod)
+
+problem
+1) did you set up global risk management?
+- Example: do you add global mdd to stop the whole trading system?
 --------------------------------------------------
 Trading_idea
 (From 22Q3 Stefan)
