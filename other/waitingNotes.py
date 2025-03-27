@@ -8,6 +8,9 @@ to-do list (prod)
 2) Execution Quality Analysis
 - add slippage tracking and execution quality metrics
 
+3) Consolidate messageHandling
+- message including order, trade, position, signal, performance, etc...
+
 to-do list (data)
 1) get_data for dataScrapper
 2) data standardization
