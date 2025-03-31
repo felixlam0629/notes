@@ -1,29 +1,27 @@
 # working Notes
 
 """
-// "strategy_list": ["Celesty", "Christy", "Christy_v2", "Glassnode"],
+update params in trading system
+// "strategy_list": ["Celesty", "Christy", "Christy_v2", "Glassnode"]
 
-to-do today
+# not yet fix -> when failed to get the latest data...
+# self.messageHandler = MessageHandler(self.exchange, self.bybitTelegram)
+
 waiting
-- run all exchangeData for testing new dataScrapper
-
-prod
-- strategy weighting -> ask how to do strategy weigting
+- combine upper and lower into threshold
+- add LO, SO, LS for combination
 
 1) backtest glassnode good endpoint_list
 2) trade glassnode good endpoint_list
-3) resample glassnode good endpoint_list
-4) backtest binance, bybit funding_rate, basis
+3) backtest binance, bybit funding_rate, basis
+4) resample glassnode good endpoint_list (backtest, prod)
+5) multi-factor calculation (backtest, prod)
 5) create straetgy pool
 6) check correlation among strategy (in fixed resolution)
 
 when tried...
 1) refactor everything...
 2) ask questions for the whole system (backtest/ prod)
-
-problem
-1) did you set up global risk management?
-- Example: do you add global mdd to stop the whole trading system?
 --------------------------------------------------
 Trading_idea
 (From 22Q3 Stefan)
